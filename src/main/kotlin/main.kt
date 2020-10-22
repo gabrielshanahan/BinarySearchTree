@@ -1,36 +1,13 @@
-import trees.BinarySearchTree
-import trees.Node
-import util.printTree
+import trees.BinaryTree
+import trees.formattedString
+import trees.insert
 
 fun main(args: Array<String>) {
 
-    val bst = BinarySearchTree().apply {
-        listOf(10, 5, 15, 3, 7, 9, 12, 20, 11, 13, 14).map { insert(it) }
-    }
+    val tree = BinaryTree
+        .buildSorted(5, 7, 3, 11, 9, -1)
 
-    println("Min = ${bst.findMin()}")
-    println("Max = ${bst.findMax()}")
+    val newTree = tree.insert(-3)
 
-    println(bst.inOrder().map { it.value })
-    printTree(bst)
-
-    bst.delete(11)
-    printTree(bst)
-    bst.delete(10)
-    printTree(bst)
-    bst.delete(13)
-    printTree(bst)
-    bst.delete(15)
-    bst.delete(14)
-    bst.delete(20)
-    bst.delete(12)
-    print("root: " + bst.root)
-
-    println(bst.inOrder().map { it.value })
-    printTree(bst)
-
-
-    println("Min = ${bst.findMin()}")
-    println("Max = ${bst.findMax()}")
-
+        listOf(tree, newTree).forEach { println(it.formattedString()) }
 }

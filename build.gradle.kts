@@ -5,7 +5,7 @@ plugins {
     kotlin("jvm") version "1.4.10"
     application
 }
-group = "projects"
+group = "io.github.binarysearchtree"
 version = "1.0"
 
 repositories {
@@ -24,7 +24,4 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-    testLogging {
-        events("passed", "skipped", "failed")
-    }
 }
